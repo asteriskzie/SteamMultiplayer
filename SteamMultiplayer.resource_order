@@ -22,6 +22,8 @@
   ],
   "ResourceOrderSettings":[
     {"name":"obj_Bullet","order":1,"path":"objects/obj_Bullet/obj_Bullet.yy",},
+    {"name":"obj_Button_HostLobby","order":5,"path":"objects/obj_Button_HostLobby/obj_Button_HostLobby.yy",},
+    {"name":"obj_Button_JoinLobby","order":4,"path":"objects/obj_Button_JoinLobby/obj_Button_JoinLobby.yy",},
     {"name":"obj_Entity","order":2,"path":"objects/obj_Entity/obj_Entity.yy",},
     {"name":"obj_Game","order":13,"path":"objects/obj_Game/obj_Game.yy",},
     {"name":"obj_LobbyItem","order":3,"path":"objects/obj_LobbyItem/obj_LobbyItem.yy",},
