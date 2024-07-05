@@ -1,10 +1,15 @@
 /// @description Listen for Server List Response 
 
+
+
 switch (async_load[? "event_type"]) {
 	case "lobby_list": 
 		show_debug_message("[DEBUG] Inside obj_LobbyList async, event type lobby_list"); 
-		reset_lobby_list(); 
+		show_debug_message("[DEBUG] lobby_count = " + string(async_load[?"lobby_count"])); 
+		show_debug_message("[DEBUG] success = " + string(async_load[?"success"])); 
+		show_debug_message("[DEBUG] result = " + string(async_load[?"result"])); 
 		
+		reset_lobby_list(); 
 		show_debug_message("[DEBUG] After reset lobby list, array size = " + string(array_length(lobby_list))); 
 		
 		if (steam_lobby_list_get_count() == 0) {
@@ -25,6 +30,6 @@ switch (async_load[? "event_type"]) {
 			}
 		}
 	
-	break 
+	break; 
 	
 }
