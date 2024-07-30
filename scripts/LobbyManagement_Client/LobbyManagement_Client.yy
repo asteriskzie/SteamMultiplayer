@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"LobbyManagement_Client",
   "isCompatibility":false,
   "isDnD":false,

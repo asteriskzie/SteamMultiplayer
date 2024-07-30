@@ -1,10 +1,14 @@
 /// @description Init Client Variables
 
+show_debug_message("[deb] bikin client");
+
 playerList = []
 
 steamID = steam_get_user_steam_id()
 steamName = steam_get_persona_name()
 lobbyMemberID = undefined
+
+
 
 character = undefined
 

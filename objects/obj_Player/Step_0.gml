@@ -1,7 +1,7 @@
 /// @description Movement & Actions based off of Input
 get_controls(isLocal)
 
-paddle_movement()
+paddle_movement(localSteamID)
 
 
 // Logic for shooting a bullet
