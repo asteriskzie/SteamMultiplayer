@@ -20,7 +20,7 @@ while(steam_net_packet_receive()){
 			
 			
 			for (var _i = 0; _i < array_length(playerList); _i++) {
-				if (playerList[_i].steamID == _player_steamID) {
+				if (playerList[_i] != undefined && playerList[_i].steamID == _player_steamID) {
 					show_debug_message("jadi harusnya masalahnya setelah ini");
 					show_debug_message(typeof(_move_x));
 					

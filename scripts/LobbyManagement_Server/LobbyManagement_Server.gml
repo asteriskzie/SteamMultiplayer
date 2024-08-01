@@ -45,7 +45,7 @@ function send_other_player_spawn(_steam_id, _pos) {
 	buffer_write(_b, buffer_u64, _steam_id);//8
 	
 	for (var _i = 1; _i < array_length(playerList); _i++){
-		if (playerList[_i].steamID != _steam_id && playerList[_i].steamID != steamID) {
+		if (playerList[_i] != undefined && playerList[_i].steamID != _steam_id && playerList[_i].steamID != steamID) {
 show_debug_message("[deb] sending buffer other player spawn to " + steam_get_user_persona_name_sync(playerList[_i].steamID)); 
 			steam_net_packet_send(playerList[_i].steamID, _b)
 		}
@@ -83,7 +83,7 @@ function server_player_spawn_at_pos(_steam_id, _pos) {
 	
 	var _layer = layer_get_id("Instances");
 	for (var _i = 0; _i < array_length(playerList); _i++){
-		if (playerList[_i].steamID == _steam_id && playerList[_i].character == undefined) {
+		if playerList[_i] != undefined && (playerList[_i].steamID == _steam_id && playerList[_i].character == undefined) {
 			var _inst = instance_create_layer(_pos.x, _pos.y,_layer,obj_Player, {
 								steamName	: playerList[_i].steamName,
 								steamID: _steam_id,
