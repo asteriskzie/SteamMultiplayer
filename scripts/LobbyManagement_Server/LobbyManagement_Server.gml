@@ -59,7 +59,15 @@ function shrink_player_list(){
 	var _shrunkList = array_create(array_length(playerList), noone); 
 	array_copy(_shrunkList, 0, playerList, 0, array_length(playerList))
 	for (var _i = 0; _i < array_length(_shrunkList); _i++) {		
-		_shrunkList[_i].character = undefined	
+		_shrunkList[_i] = {
+			steamID: playerList[_i].steamID,
+			steamName: playerList[_i].steamName,
+			character: undefined,
+			startPos: playerList[_i].startPos,
+			lobbyMemberID: playerList[_i].lobbyMemberID,
+		}; 
+			
+		
 	}
 	
 	return json_stringify(_shrunkList)
