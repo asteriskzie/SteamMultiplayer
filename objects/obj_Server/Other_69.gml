@@ -15,11 +15,15 @@ switch(async_load[?"event_type"])
 				startPos: grab_spawn_point(_slot),
 				lobbyMemberID: _slot
 			})
+			
+			if (playerList[0].character == undefined) show_debug_message("POSISI A"); 
 			// send the server's playerlist to the new player's interface
 			send_player_sync(_fromID);
+			if (playerList[0].character == undefined) show_debug_message("POSISI B"); 
 			
 			// spawn the players to the new player's interface
 			send_player_spawn(_fromID, _slot);
+			if (playerList[0].character == undefined) show_debug_message("POSISI C"); 
 		}
 		break
 }

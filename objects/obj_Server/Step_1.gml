@@ -21,8 +21,16 @@ while(steam_net_packet_receive()){
 			
 			for (var _i = 0; _i < array_length(playerList); _i++) {
 				if (playerList[_i].steamID == _player_steamID) {
-					playerList[_i].character.x += _move_x; 
-					playerList[_i].character.y += _move_y; 
+					show_debug_message("jadi harusnya masalahnya setelah ini");
+					show_debug_message(typeof(_move_x));
+					
+					if (playerList[_i].character != undefined) {
+						playerList[_i].character.x += _move_x; 
+					show_debug_message("kalo ini ga muncul berarti bener masalahnya ini"); 
+					playerList[_i].character.y += _move_y;
+					
+					}
+					 
 					
 					send_player_spawn(_player_steamID, playerList[_i].lobbyMemberID); 
 					

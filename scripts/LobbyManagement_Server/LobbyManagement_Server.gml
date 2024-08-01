@@ -14,10 +14,13 @@ function send_player_sync(_steam_id){
 function send_player_spawn(_steam_id, _slot) {
 	var _pos = grab_spawn_point(_slot); 
 	
-	if (playerList[_slot].character != undefined) {
-		_pos.x = playerList[_slot].character.x; 
-		_pos.y = playerList[_slot].character.y; 
+	if (playerList[_slot].character == undefined) {
+		if (_slot == 0) show_debug_message("WOYLAH"); 
+		server_player_spawn_at_pos(_steam_id, _pos);
 	}
+	
+	_pos.x = playerList[_slot].character.x; 
+	_pos.y = playerList[_slot].character.y; 
 	
 	if (_steam_id != steamID) { // cuma send buffer ke client aja 
 		var _b = buffer_create(5, buffer_fixed, 1); //1+2+2
@@ -30,7 +33,6 @@ show_debug_message("[deb] sending buffer self spawn to " + steam_get_user_person
 		buffer_delete(_b);		
 	}
 
-	server_player_spawn_at_pos(_steam_id, _pos);
 	send_other_player_spawn(_steam_id, _pos);
 }
 
@@ -54,10 +56,12 @@ show_debug_message("[deb] sending buffer other player spawn to " + steam_get_use
 
 ///@self obj_Server
 function shrink_player_list(){
-	var _shrunkList = playerList
-	for (var _i = 0; _i < array_length(_shrunkList); _i++) {
+	var _shrunkList = array_create(array_length(playerList), noone); 
+	array_copy(_shrunkList, 0, playerList, 0, array_length(playerList))
+	for (var _i = 0; _i < array_length(_shrunkList); _i++) {		
 		_shrunkList[_i].character = undefined	
 	}
+	
 	return json_stringify(_shrunkList)
 }
 
