@@ -1,4 +1,3 @@
-
 ///@self obj_Server
 function send_player_sync(_steam_id){
 	// ini cuma ngirimin data playerlist ke client 
@@ -14,8 +13,7 @@ function send_player_sync(_steam_id){
 function send_player_spawn(_steam_id, _slot) {
 	var _pos = grab_spawn_point(_slot); 
 	
-	if (playerList[_slot].character == undefined) {
-		if (_slot == 0) show_debug_message("WOYLAH"); 
+	if (playerList[_slot].character == undefined) {		
 		server_player_spawn_at_pos(_steam_id, _pos);
 	}
 	
@@ -54,20 +52,28 @@ show_debug_message("[deb] sending buffer other player spawn to " + steam_get_use
 	buffer_delete(_b);
 }
 
+
 ///@self obj_Server
 function shrink_player_list(){
-	var _shrunkList = array_create(array_length(playerList), noone); 
-	array_copy(_shrunkList, 0, playerList, 0, array_length(playerList))
-	for (var _i = 0; _i < array_length(_shrunkList); _i++) {		
-		_shrunkList[_i] = {
-			steamID: playerList[_i].steamID,
-			steamName: playerList[_i].steamName,
-			character: undefined,
-			startPos: playerList[_i].startPos,
-			lobbyMemberID: playerList[_i].lobbyMemberID,
-		}; 
-			
-		
+	var _shrunkList = []; 
+	
+	for (var _i = 0; _i < array_length(playerList); _i++) {
+		if (playerList[_i] != undefined) {
+			show_debug_message("i = " + string(_i)); 
+			show_debug_message("id = " + string(playerList[_i].steamID)); 
+			show_debug_message("name = " + string(playerList[_i].steamName)); 
+			show_debug_message("startpos = " + string(playerList[_i].startPos)); 
+			show_debug_message("lobbyMemberID = " + string(playerList[_i].lobbyMemberID)); 
+						
+			array_push(_shrunkList, {
+				steamID: playerList[_i].steamID,
+				steamName: playerList[_i].steamName,
+				character: undefined,
+				startPos: playerList[_i].startPos,
+				lobbyMemberID: playerList[_i].lobbyMemberID,
+			}); 
+		}
+	
 	}
 	
 	return json_stringify(_shrunkList)

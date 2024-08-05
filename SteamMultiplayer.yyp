@@ -63,6 +63,7 @@
     {"id":{"name":"Input","path":"scripts/Input/Input.yy",},},
     {"id":{"name":"LobbyManagement_Client","path":"scripts/LobbyManagement_Client/LobbyManagement_Client.yy",},},
     {"id":{"name":"LobbyManagement_Server","path":"scripts/LobbyManagement_Server/LobbyManagement_Server.yy",},},
+    {"id":{"name":"LobbyManagement","path":"scripts/LobbyManagement/LobbyManagement.yy",},},
     {"id":{"name":"Packets","path":"scripts/Packets/Packets.yy",},},
     {"id":{"name":"PlayerManagement","path":"scripts/PlayerManagement/PlayerManagement.yy",},},
     {"id":{"name":"PlayerMovement","path":"scripts/PlayerMovement/PlayerMovement.yy",},},

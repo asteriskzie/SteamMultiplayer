@@ -29,20 +29,6 @@ function is_in_playerList(_steamID) {
 	return false; 
 }
 
-///@self obj_Client 
-function get_idx_playerList(_steamID) {
-	var _res = -1;
-	for (var _i = 0; _i < 4; _i++) {
-		if (playerList[_i] != undefined && playerList[_i].steamID == _steamID) {
-			_res = _i; 
-			break; 
-		} 
-	}
-	return _res; 
-}
-
-
-
 ///@self obj_Client
 function sync_players(_new_list) {
 	// _new_list is the correct list from server 
